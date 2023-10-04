@@ -4,7 +4,6 @@ const InfoCard = ({ title, description, image, page }) => {
   return (
     <div className="relative w-[12rem] h-[15rem] lg:h-[20rem] lg:w-[15rem] hover:shadow-xl hover:shadow-gray-700 hover:scale-105 transition-all duration-300 hover:cursor-pointer">
       <img
-        // src="https://images.unsplash.com/photo-1546961329-78bef0414d7c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fHVzZXJ8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60"
         src={image}
         alt={title}
         className="z-0 h-full w-full rounded-md object-cover"
