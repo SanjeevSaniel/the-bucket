@@ -1,19 +1,23 @@
-const LatestArticles = ({ heading, articles }) => {
+const LatestArticles = ({ backgroundColor, heading, articles }) => {
+  const technologyArticles = articles.filter(
+    (article) => article.topic.toLowerCase() === heading.toLowerCase()
+  );
+
   return (
-    <div className="p-14">
+    <div className={`bg-[${backgroundColor}] p-14`}>
       <h1 className="capitalize underline underline-offset-4 mb-8 text-3xl">
         {heading}
       </h1>
 
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-        {articles.map((article, index) => {
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 ease-linear duration-500">
+        {technologyArticles.map((article, index) => {
           return (
             <div key={index}>
               {/* bg-[#138D75] */}
-              <div className="w-full h-fit box-border font-sans hover:scale-110 ease-in-out duration-500 hover:shadow-2xl cursor-pointer rounded-lg overflow-hidden">
+              <div className="w-full h-fit box-border font-sans hover:scale-105 ease-in-out duration-500 hover:shadow-2xl cursor-pointer rounded-lg overflow-hidden">
                 <img
-                  src="https://akm-img-a-in.tosshub.com/indiatoday/images/story/media_bank/202310/google-pixel-watch-2-04051067-16x9.jpg?VersionId=ojcpp6y1KVkTxttUzv5nK2kTUWINI0A3&size=690:388"
-                  alt="Google Pixel Watch 2"
+                  src={article.image}
+                  alt={article.caption}
                   className="w-full h-[250px] object-fit"
                 />
                 <div className="bg-white p-4 rounded-b-lg border-x-2 border-b-2 border-gray-100">
