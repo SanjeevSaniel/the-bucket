@@ -12,13 +12,13 @@ const Navbar = () => {
   return (
     <div className="flex flex-row justify-between items-center px-14 py-7 mb-4">
       <div className="flex-initial">the bucket</div>
-      <div className="flex-initial bg-[#292a43] rounded-lg">
+      <div className="flex-initial bg-[#414141] rounded-lg">
         <ul role="list" className="flex flex-row justify-between">
           {menuItems.map((menu, index) => {
             return (
               <li
                 key={index}
-                className={`mx-2 p-2 text-white capitalize hover:text-yellow-300 hover:cursor-pointer ${
+                className={`mx-2 p-2 capitalize text-white hover:text-[#E3DC00] hover:cursor-pointer ${
                   currentMenu.toLowerCase() === menu.toLowerCase() &&
                   "text-yellow-300 underline underline-offset-1"
                 }`}
