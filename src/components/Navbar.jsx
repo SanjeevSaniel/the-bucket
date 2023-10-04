@@ -10,7 +10,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="flex flex-row justify-between items-center px-14 py-7 mb-4">
+    <div className="flex flex-row justify-between items-center px-6 lg:px-14 pt-6">
       <div className="flex-initial">the bucket</div>
       <div className="flex-initial bg-[#414141] rounded-lg">
         <ul role="list" className="flex flex-row justify-between">
@@ -30,7 +30,9 @@ const Navbar = () => {
           })}
         </ul>
       </div>
-      <div className="flex-initial">Icons</div>
+      <div className="flex-initial invisible">
+        <span className="material-symbols-outlined">person</span>
+      </div>
     </div>
   );
 };
