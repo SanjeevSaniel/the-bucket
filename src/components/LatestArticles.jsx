@@ -18,7 +18,7 @@ const LatestArticles = ({ backgroundColor, heading, articles }) => {
                 <img
                   src={article.image}
                   alt={article.caption}
-                  className="w-full h-[250px] object-fit"
+                  className="w-full h-[200px] object-fit"
                 />
                 <div className="bg-white p-4 rounded-b-lg border-x-2 border-b-2 border-gray-100">
                   {/* border-x-2 border-b-2 border-gray-100 */}
