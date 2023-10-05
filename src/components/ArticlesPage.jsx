@@ -18,12 +18,9 @@ const ArticlesPage = () => {
         </Link>
         <span className="">›</span>
 
-        <p className="inline-flex p-2">
-          Articles
-        </p>
+        <p className="inline-flex p-2">Articles</p>
 
-        <span className="">›</span>
-        <p className="inline-flex p-2">{location.pathname.split("/")[2]}</p>
+        {/* <span className="">›</span> */}
       </div>
       <h1 className="capitalize underline underline-offset-4 mb-8 text-3xl">
         Articles
@@ -48,27 +45,29 @@ const ArticlesPage = () => {
           return (
             <div key={index}>
               {/* bg-[#138D75] */}
-              <div className="w-full h-fit box-border font-sans hover:scale-105 ease-in-out duration-500 hover:shadow-2xl cursor-pointer rounded-lg overflow-hidden">
-                <img
-                  src={article.image}
-                  alt={article.caption}
-                  className="w-full h-[200px] object-fit"
-                />
-                <div className="bg-white p-4 rounded-b-lg border-x-2 border-b-2 border-gray-100">
-                  {/* border-x-2 border-b-2 border-gray-100 */}
-                  <span className="inline-flex items-center rounded-md text-xs font-semibold text-red-700 mb-2 uppercase">
-                    {article.topic}
-                  </span>
-                  <h2 className="line-clamp-2 font-bold">{article.title}</h2>
-                  <p className="line-clamp-2 my-2 text-sm">
-                    {article.description}
-                  </p>
-                  <hr />
-                  <p className="text-sm my-2">
-                    {article.publisher}, {article.date}
-                  </p>
+              <Link to={`/category/${article.topic}/${article.id}`}>
+                <div className="w-full h-fit box-border font-sans hover:scale-105 ease-in-out duration-500 hover:shadow-2xl cursor-pointer rounded-lg overflow-hidden">
+                  <img
+                    src={article.image}
+                    alt={article.caption}
+                    className="w-full h-[200px] object-fit"
+                  />
+                  <div className="bg-white p-4 rounded-b-lg border-x-2 border-b-2 border-gray-100">
+                    {/* border-x-2 border-b-2 border-gray-100 */}
+                    <span className="inline-flex items-center rounded-md text-xs font-semibold text-red-700 mb-2 uppercase">
+                      {article.topic}
+                    </span>
+                    <h2 className="line-clamp-2 font-bold">{article.title}</h2>
+                    <p className="line-clamp-2 my-2 text-sm">
+                      {article.description}
+                    </p>
+                    <hr />
+                    <p className="text-sm my-2">
+                      {article.publisher}, {article.date}
+                    </p>
+                  </div>
                 </div>
-              </div>
+              </Link>
             </div>
           );
         })}
