@@ -7,7 +7,9 @@ function App() {
   return (
     <div className="relative">
       <Navbar />
-      <RoutesPage />
+      <div className="min-h-screen">
+        <RoutesPage />
+      </div>
       <Footer />
     </div>
   );
