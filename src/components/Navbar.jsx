@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const menuItems = [
   { id: 1, label: "home", path: "" },
@@ -8,6 +8,9 @@ const menuItems = [
 ];
 
 const Navbar = () => {
+  const location = useLocation();
+  console.log("Location:", location);
+
   const [currentMenu, setCurrentMenu] = useState(() => {
     return JSON.parse(localStorage.getItem("menu")) || "home";
   });
@@ -17,8 +20,16 @@ const Navbar = () => {
   };
 
   useEffect(() => {
-    localStorage.setItem("menu", JSON.stringify(currentMenu));
-  }, [currentMenu]);
+    if (location.pathname !== `/`)
+      localStorage.setItem(
+        "menu",
+        JSON.stringify(location.pathname.slice(1, 1))
+      );
+    else {
+      localStorage.setItem("menu", JSON.stringify("home"));
+      setCurrentMenu("home");
+    }
+  }, [location, currentMenu]);
 
   // useEffect(() => {
   //   const menu = JSON.parse(localStorage.getItem("menu"));
