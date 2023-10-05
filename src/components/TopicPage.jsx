@@ -1,14 +1,15 @@
 import { useContext } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { ArticlesContext } from "./MainContainer";
 
 const TopicPage = () => {
-  const location = useLocation().pathname.split("/")[2];
+  const { topic } = useParams();
+  console.log("topic", topic);
 
   const articles = useContext(ArticlesContext);
 
   const filteredArticles = articles.filter(
-    (article) => article.topic === location.toLowerCase()
+    (article) => article.topic === topic.toLowerCase()
   );
 
   return (
@@ -26,11 +27,11 @@ const TopicPage = () => {
           </p>
         </Link>
         <span className="">›</span>
-        <p className="inline-flex p-2">{location}</p>
+        <p className="inline-flex p-2">{topic}</p>
       </div>
 
       <h1 className="my-4 capitalize text-4xl underline underline-offset-1 font-semibold">
-        {location}
+        {topic}
       </h1>
 
       <div className="grid grid-cols-2 gap-6 ease-linear duration-500 my-8">
