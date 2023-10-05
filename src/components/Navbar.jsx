@@ -1,36 +1,58 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
-const menuItems = ["home", "blog", "about"];
+const menuItems = [
+  { id: 1, label: "home", path: "" },
+  { id: 2, label: "articles", path: "articles" },
+  // { id: 3, label: "about", path: "about" },
+];
 
 const Navbar = () => {
-  const [currentMenu, setCurrentMenu] = useState("home");
+  const [currentMenu, setCurrentMenu] = useState(() => {
+    return JSON.parse(localStorage.getItem("menu")) || "home";
+  });
 
   const handleMenu = (menu) => {
     setCurrentMenu(menu);
   };
 
+  useEffect(() => {
+    localStorage.setItem("menu", JSON.stringify(currentMenu));
+  }, [currentMenu]);
+
+  // useEffect(() => {
+  //   const menu = JSON.parse(localStorage.getItem("menu"));
+  //   if (menu) setCurrentMenu(menu);
+  // }, [setCurrentMenu]);
+
   return (
-    <div className="flex flex-row justify-between items-center px-6 lg:px-14 pt-6">
-      <div className="flex-initial">the bucket</div>
+    <div className="flex flex-row justify-between items-center px-6 lg:px-14 py-3 sticky top-0 z-20 bg-opacity-20 bg-gradient-to-r from-gray-900 to-transparent">
+      <div className="flex-initial font-medium text-white text-2xl drop-shadow-2xl">
+        <Link to="/">the bucket</Link>
+      </div>
       <div className="flex-initial bg-[#414141] rounded-lg">
         <ul role="list" className="flex flex-row justify-between">
           {menuItems.map((menu, index) => {
             return (
-              <li
-                key={index}
-                className={`mx-2 p-2 capitalize text-white hover:text-[#E3DC00] hover:cursor-pointer ${
-                  currentMenu.toLowerCase() === menu.toLowerCase() &&
-                  "text-yellow-300 underline underline-offset-1"
-                }`}
-                onClick={() => handleMenu(menu)}
-              >
-                {menu}
-              </li>
+              <Link key={index} to={`/${menu.path}`}>
+                <li
+                  className={`mx-2 p-2 capitalize text-white hover:text-[#E3DC00] hover:cursor-pointer ${
+                    currentMenu.toLowerCase() === menu.label.toLowerCase() &&
+                    "text-yellow-300 underline underline-offset-1"
+                  }`}
+                  onClick={() => handleMenu(menu.label)}
+                >
+                  {menu.label}
+                </li>
+              </Link>
             );
           })}
         </ul>
       </div>
       <div className="flex-initial invisible">
+        <span className="material-symbols-outlined">person</span>
+        <span className="material-symbols-outlined">person</span>
+        <span className="material-symbols-outlined">person</span>
         <span className="material-symbols-outlined">person</span>
       </div>
     </div>
