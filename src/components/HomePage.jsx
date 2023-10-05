@@ -8,7 +8,7 @@ import { ArticlesContext } from "./MainContainer";
 const data = [
   {
     id: 1,
-    title: "Travel",
+    topic: "Travel",
     description:
       "The journey of the soul, It’s the adventure that makes us whole.",
     image:
@@ -17,7 +17,7 @@ const data = [
   },
   {
     id: 2,
-    title: "Finance",
+    topic: "Finance",
     description:
       "The engine of our dreams, It’s the river that feeds life’s streams.",
     image:
@@ -26,7 +26,7 @@ const data = [
   },
   {
     id: 3,
-    title: "Health",
+    topic: "Health",
     description:
       "The greatest wealth we own, A foundation for joy, as life has shown.",
     image:
@@ -35,7 +35,7 @@ const data = [
   },
   {
     id: 4,
-    title: "Entertaiment",
+    topic: "Entertaiment",
     description:
       "Entertainment is a joyous diversion, It’s the heart’s delightful excursion.",
     image:
@@ -44,7 +44,7 @@ const data = [
   },
   {
     id: 5,
-    title: "Technology",
+    topic: "Tech",
     description:
       "The tool of modern ease, It’s the wind beneath humanity’s wings.",
     image:
