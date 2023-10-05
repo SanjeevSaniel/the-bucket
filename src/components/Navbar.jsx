@@ -20,21 +20,12 @@ const Navbar = () => {
   };
 
   useEffect(() => {
-    if (location.pathname !== `/`)
-      localStorage.setItem(
-        "menu",
-        JSON.stringify(location.pathname.slice(1, 1))
-      );
-    else {
+    if (location.pathname === `/`) {
       localStorage.setItem("menu", JSON.stringify("home"));
       setCurrentMenu("home");
-    }
+    } else
+      localStorage.setItem("menu", JSON.stringify(location.pathname.slice(1)));
   }, [location, currentMenu]);
-
-  // useEffect(() => {
-  //   const menu = JSON.parse(localStorage.getItem("menu"));
-  //   if (menu) setCurrentMenu(menu);
-  // }, [setCurrentMenu]);
 
   return (
     <div className="flex flex-row justify-between items-center px-6 lg:px-14 py-3 sticky top-0 z-20 bg-opacity-20 bg-gradient-to-r from-gray-900 to-transparent">
