@@ -1,4 +1,4 @@
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 
 const InfoCard = ({ topic, description, image, page }) => {
   return (
@@ -20,11 +20,11 @@ const InfoCard = ({ topic, description, image, page }) => {
   );
 };
 
-InfoCard.propTypes = {
-  title: PropTypes.string,
-  description: PropTypes.string,
-  image: PropTypes.string,
-  page: PropTypes.string,
-};
+// InfoCard.propTypes = {
+//   title: PropTypes.string,
+//   description: PropTypes.string,
+//   image: PropTypes.string,
+//   page: PropTypes.string,
+// };
 
 export default InfoCard;

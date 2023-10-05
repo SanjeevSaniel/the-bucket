@@ -112,7 +112,7 @@ const LatestArticles = ({ backgroundColor, heading, articles }) => {
             &gt;
           </HorizonalScrollButton>
 
-          <div className="grid grid-cols-4  gap-8 ease-linear duration-500">
+          <div className="grid grid-cols-4 gap-8 ease-linear duration-500">
             {filteredArticles.slice(start, end).map((article, index) => {
               return (
                 <div key={index}>
