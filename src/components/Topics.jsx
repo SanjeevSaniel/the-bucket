@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import InfoCard from "./InfoCard";
 import PropTypes from "prop-types";
 
@@ -11,12 +12,17 @@ const Topics = ({ heading, data }) => {
         {data.map((d) => {
           return (
             <div key={d.id}>
-              <InfoCard
-                topic={d.topic}
-                description={d.description}
-                image={d.image}
-                page={d.link}
-              />
+              <Link
+                to={`/category/${d.topic}`}
+                onClick={() => console.log(d.topic)}
+              >
+                <InfoCard
+                  topic={d.topic}
+                  description={d.description}
+                  image={d.image}
+                  page={d.link}
+                />
+              </Link>
             </div>
           );
         })}
