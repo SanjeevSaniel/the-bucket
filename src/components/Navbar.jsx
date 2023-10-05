@@ -28,7 +28,7 @@ const Navbar = () => {
   }, [location, currentMenu]);
 
   return (
-    <div className="flex flex-row justify-between items-center px-6 lg:px-14 py-3 sticky top-0 z-20 bg-opacity-20 bg-gradient-to-r from-gray-900 to-slate-400 shadow-xl">
+    <div className="flex flex-row justify-between items-center px-6 lg:px-14 py-3 sticky top-0 z-40 bg-opacity-20 bg-gradient-to-r from-gray-900 to-slate-400 shadow-xl">
       <div className="flex-initial font-medium text-white text-xl drop-shadow-2xl">
         <Link to="/">the bucket</Link>
       </div>
