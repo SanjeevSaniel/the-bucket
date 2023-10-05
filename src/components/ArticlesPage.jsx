@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { ArticlesContext } from "./MainContainer";
+import { Link } from "react-router-dom";
 
 const ArticlesPage = () => {
   const articles = useContext(ArticlesContext);
@@ -8,7 +9,22 @@ const ArticlesPage = () => {
   articles.forEach((article) => categories.push(article.topic));
 
   return (
-    <div className={`p-14`}>
+    <div className={`px-14`}>
+      <div className="my-4">
+        <Link to="/">
+          <p className="inline-flex p-2 hover:underline hover:underline-offset-1">
+            Home
+          </p>
+        </Link>
+        <span className="">›</span>
+
+        <p className="inline-flex p-2">
+          Articles
+        </p>
+
+        <span className="">›</span>
+        <p className="inline-flex p-2">{location.pathname.split("/")[2]}</p>
+      </div>
       <h1 className="capitalize underline underline-offset-4 mb-8 text-3xl">
         Articles
       </h1>
