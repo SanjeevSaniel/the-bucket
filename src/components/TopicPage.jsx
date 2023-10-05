@@ -38,26 +38,28 @@ const TopicPage = () => {
         {filteredArticles.map((article, index) => {
           return (
             <div key={index}>
-              <div className="grid grid-cols-2 max-h-[12rem] m-auto box-border font-sans hover:scale-105 ease-in-out duration-500 hover:shadow-2xl cursor-pointer rounded-md overflow-hidden relative">
-                <img
-                  src={article.image}
-                  alt={article.caption}
-                  className="w-full h-full object-fit"
-                />
-                <div className="bg-white p-4 rounded-b-lg border-x-2 border-b-2 border-gray-100">
-                  <span className="inline-flex items-center text-xs font-semibold text-red-700 mb-2 uppercase">
-                    {article.topic}
-                  </span>
-                  <h2 className="line-clamp-2 font-bold">{article.title}</h2>
-                  <p className="line-clamp-2 my-2 text-sm">
-                    {article.description}
-                  </p>
-                  <hr />
-                  <p className="text-sm my-2">
-                    {article.publisher}, {article.date}
-                  </p>
+              <Link to={`/category/${article.topic}/${article.id}`}>
+                <div className="grid grid-cols-2 max-h-[12rem] m-auto box-border font-sans ease-in-out duration-500 hover:shadow-2xl cursor-pointer rounded-md overflow-hidden relative">
+                  <img
+                    src={article.image}
+                    alt={article.caption}
+                    className="w-full h-full object-fit"
+                  />
+                  <div className="bg-white p-4 rounded-b-lg border-x-2 border-b-2 border-gray-100">
+                    <span className="inline-flex items-center text-xs font-semibold text-red-700 mb-2 uppercase">
+                      {article.topic}
+                    </span>
+                    <h2 className="line-clamp-2 font-bold">{article.title}</h2>
+                    <p className="line-clamp-2 my-2 text-sm">
+                      {article.description}
+                    </p>
+                    <hr />
+                    <p className="text-sm my-2">
+                      {article.publisher}, {article.date}
+                    </p>
+                  </div>
                 </div>
-              </div>
+              </Link>
             </div>
           );
         })}
