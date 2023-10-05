@@ -25,7 +25,7 @@ const Highlights = () => {
             <p className="mt-2 text-sm line-clamp-3 text-gray-300">
               {topArticle.description}
             </p>
-            <p className="text-white font-sans font-bold text-yellow-400 mt-3">
+            <p className="font-sans font-bold text-yellow-400 mt-3">
               {topArticle.topic.toUpperCase()}
             </p>
             {/* <button className="mt-2 inline-flex cursor-pointer items-center text-sm font-semibold text-white hover:text-yellow-300 hover:underline">
@@ -55,7 +55,7 @@ const Highlights = () => {
                   <p className="mt-2 text-sm text-gray-300 line-clamp-2">
                     {article.description}
                   </p>
-                  <p className="text-white font-sans font-bold text-yellow-400 mt-2">
+                  <p className="font-sans font-bold text-yellow-400 mt-2">
                     {article.topic.toUpperCase()}
                   </p>
                   {/* <button className="mt-2 inline-flex cursor-pointer items-center text-sm font-semibold text-white hover:text-yellow-300 hover:underline">
