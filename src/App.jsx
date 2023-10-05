@@ -1,11 +1,15 @@
 import "./App.css";
-import MainContainer from "./components/MainContainer";
+import RoutesPage from "./RoutesPage";
+import Footer from "./components/Footer";
+import Navbar from "./components/Navbar";
 
 function App() {
   return (
-    <>
-      <MainContainer />
-    </>
+    <div className="relative">
+      <Navbar />
+      <RoutesPage />
+      <Footer />
+    </div>
   );
 }
 
