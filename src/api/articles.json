@@ -7,6 +7,7 @@
         "topic": "tech",
         "image": "https://akm-img-a-in.tosshub.com/indiatoday/images/story/media_bank/202310/google-pixel-watch-2-04051067-16x9.jpg?VersionId=ojcpp6y1KVkTxttUzv5nK2kTUWINI0A3&size=690:388",
         "publisher": "India Today",
+        "logo": "",
         "date": "October 4, 2023"
     },
     {
@@ -47,6 +48,20 @@
         "topic": "travel",
         "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/08/9f/b7/98/photo8jpg.jpg?w=1400&h=900&s=1",
         "publisher": "BucketListly Blog",
+        "social": [
+            {
+                "id": 1,
+                "name": "youtube",
+                "url": "https://www.youtube.com/@bucketlistly",
+                "ariaLabel": "Navigate to BucketListly's Youtube Page"
+            },
+            {
+                "id": 2,
+                "name": "instagram",
+                "url": "https://www.instagram.com/peachananr",
+                "ariaLabel": "Navigate to BucketListly's Instagram Page"
+            }
+        ],
         "date": "September 15, 2023"
     },
     {
