@@ -90,7 +90,9 @@ const LatestArticles = ({ backgroundColor, heading, articles }) => {
 
   if (window.innerWidth >= 1200)
     return (
-      <div className={`bg-[${backgroundColor}] p-14`}>
+      <div
+        className={`bg-[${backgroundColor}] px-14 py-6`}
+      >
         <h1 className="capitalize underline underline-offset-4 mb-8 text-3xl">
           {heading}
         </h1>
