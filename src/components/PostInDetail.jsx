@@ -5,7 +5,7 @@ import Avatar from "react-avatar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faInstagram,
-  faPinterest,
+  // faPinterest,
   faYoutube,
 } from "@fortawesome/free-brands-svg-icons";
 
@@ -74,11 +74,6 @@ const PostInDetail = () => {
                   <span className="mr-2 ring-2 ring-white">
                     <Avatar size="50px" round="100%" name={article.publisher} />
                   </span>
-                  // <img
-                  //   className="inline-block h-10 w-10 mx-4 rounded-full ring-2 ring-white"
-                  //   src=""
-                  //   alt="A"
-                  // />
                 )}
                 <div>
                   <p>{article.publisher}</p>
@@ -110,36 +105,6 @@ const PostInDetail = () => {
                         </a>
                       );
                     })}
-
-                    {/* <a
-                    href="https://www.instagram.com/peachananr"
-                    className="social-circle instagram loaded"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Navigate to BucketListly's Instagram Page"
-                  >
-                    <FontAwesomeIcon icon={faInstagram} size="lg" />
-                  </a> */}
-
-                    {/* <a
-                    href="https://www.youtube.com/@bucketlistly?sub_confirmation=1"
-                    className="social-circle youtube loaded"
-                    rel="noreferrer"
-                    target="_blank"
-                    aria-label="Navigate to BucketListly's Youtube Page"
-                  >
-                    <FontAwesomeIcon icon={faYoutube} size="lg" />
-                  </a>
-
-                  <a
-                    href="https://www.pinterest.com/bucketlistly_blog"
-                    className="social-circle pinterest loaded"
-                    target="_blank"
-                    rel="noopener noreferrer external"
-                    aria-label="Navigate to BucketListly's Pinterest Page"
-                  >
-                    <FontAwesomeIcon icon={faPinterest} size="lg" />
-                  </a> */}
                   </div>
                 </div>
               )}
@@ -164,9 +129,6 @@ const PostInDetail = () => {
                           className="w-full h-full object-fit col-span-2"
                         />
                         <div className="col-span-3 bg-white px-3 py-1 rounded-b-lg border-x-2 border-b-2 border-gray-100">
-                          {/* <span className="inline-flex items-center text-xs font-semibold text-red-700 mb-2 uppercase">
-                          {article.topic}
-                        </span> */}
                           <h2 className="line-clamp-2 font-bold">
                             {article.title}
                           </h2>
@@ -216,10 +178,6 @@ const PostInDetail = () => {
               alt={article.caption}
               className="w-full max-h-[30rem] mt-5 mb-2 object-cover"
             />
-            {/* <p>
-              {article.publisher}, {article.date}
-            </p>
-            <p className="my-5">{article.description}</p> */}
 
             <div className="flex justify-between items-center p-2">
               <div className="flex items-center">
@@ -247,11 +205,6 @@ const PostInDetail = () => {
                   <span className="mx-4 ring-2 ring-white">
                     <Avatar size="50px" round="100%" name={article.publisher} />
                   </span>
-                  // <img
-                  //   className="inline-block h-10 w-10 mx-4 rounded-full ring-2 ring-white"
-                  //   src=""
-                  //   alt="A"
-                  // />
                 )}
                 <div>
                   <p>{article.publisher}</p>
@@ -281,9 +234,6 @@ const PostInDetail = () => {
                           className="w-full h-full object-fit col-span-2"
                         />
                         <div className="col-span-3 bg-white px-3 py-1 rounded-b-lg border-x-2 border-b-2 border-gray-100">
-                          {/* <span className="inline-flex items-center text-xs font-semibold text-red-700 mb-2 uppercase">
-                          {article.topic}
-                        </span> */}
                           <h2 className="line-clamp-2 font-bold">
                             {article.title}
                           </h2>
