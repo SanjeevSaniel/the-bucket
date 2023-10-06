@@ -1,12 +1,10 @@
 import { useEffect, useRef, useState } from "react";
+import { useLocation } from "react-router-dom";
 import "./App.css";
 import RoutesPage from "./RoutesPage";
 import Footer from "./components/Footer";
 import GotoTop from "./components/GotoTop";
 import Navbar from "./components/Navbar";
-import { useLocation } from "react-router-dom";
-
-// export const PagePositionContext = createContext(0);
 
 function App() {
   const [scrollPosition, setScrollPosition] = useState(0);
