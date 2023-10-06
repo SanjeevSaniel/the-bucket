@@ -9,7 +9,6 @@ const menuItems = [
 
 const Navbar = () => {
   const location = useLocation();
-  console.log("Location:", location);
 
   const [currentMenu, setCurrentMenu] = useState(() => {
     return JSON.parse(localStorage.getItem("menu")) || "home";
@@ -38,7 +37,7 @@ const Navbar = () => {
             return (
               <Link key={index} to={`/${menu.path}`}>
                 <li
-                  className={`mx-2 p-2 capitalize text-white hover:text-[#E3DC00] hover:cursor-pointer ${
+                  className={`mx-2 p-2 capitalize text-white hover:text-[#E3DC00] hover:cursor-pointer  ${
                     currentMenu.toLowerCase() === menu.label.toLowerCase() &&
                     "text-yellow-300 underline underline-offset-1"
                   }`}
