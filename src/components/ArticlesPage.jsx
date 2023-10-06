@@ -1,12 +1,23 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { ArticlesContext } from "./MainContainer";
 import { Link } from "react-router-dom";
 
 const ArticlesPage = () => {
   const articles = useContext(ArticlesContext);
+  const [categorySelected, setCategorySelected] = useState("");
+  const [filteredArticles, setFilteredArticles] = useState(articles);
 
   const categories = [];
   articles.forEach((article) => categories.push(article.topic));
+
+  const filterArticles = (category) => {
+    setCategorySelected(category);
+    const result = category
+      ? articles.filter((article) => article.topic === category)
+      : articles;
+
+    setFilteredArticles(result);
+  };
 
   return (
     <div className={`px-14`}>
@@ -17,10 +28,7 @@ const ArticlesPage = () => {
           </p>
         </Link>
         <span className="">›</span>
-
         <p className="inline-flex p-2">Articles</p>
-
-        {/* <span className="">›</span> */}
       </div>
       <h1 className="capitalize underline underline-offset-4 mb-8 text-3xl">
         Articles
@@ -28,20 +36,31 @@ const ArticlesPage = () => {
 
       <div className="mb-8">
         <span>Categories: </span>
+
+        <button
+          onClick={() => filterArticles("")}
+          disabled={categorySelected == ""}
+          className="border-2 border-solid border-black px-2 mx-2 rounded-md inline-block uppercase disabled:bg-gray-600 disabled:text-white"
+        >
+          ALL
+        </button>
+
         {[...new Set([...categories])].map((c, index) => {
           return (
-            <span
+            <button
               key={index}
-              className="px-2  mx-2 rounded-md bg-yellow-400 inline-block uppercase "
+              disabled={categorySelected == c}
+              className="disabled:bg-gray-600 disabled:text-white border-2 border-solid border-black px-2 mx-2 rounded-md uppercase"
+              onClick={() => filterArticles(c)}
             >
               {c}
-            </span>
+            </button>
           );
         })}
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 ease-linear duration-500">
-        {articles.map((article, index) => {
+        {filteredArticles.map((article, index) => {
           return (
             <div key={index}>
               {/* bg-[#138D75] */}
@@ -53,7 +72,6 @@ const ArticlesPage = () => {
                     className="w-full h-[200px] object-fit"
                   />
                   <div className="bg-white p-4 rounded-b-lg border-x-2 border-b-2 border-gray-100">
-                    {/* border-x-2 border-b-2 border-gray-100 */}
                     <span className="inline-flex items-center rounded-md text-xs font-semibold text-red-700 mb-2 uppercase">
                       {article.topic}
                     </span>
