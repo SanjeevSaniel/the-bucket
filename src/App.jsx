@@ -39,7 +39,7 @@ function App() {
 
   return (
     <div className="relative" ref={refScrollUp}>
-      <Navbar />
+      <Navbar scrollUp={handleScrollUp} />
       <GotoTop showBtn={showGoTop} scrollUp={handleScrollUp} />
       <div className="min-h-screen">
         <RoutesPage />
