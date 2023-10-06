@@ -9,7 +9,7 @@ const Highlights = () => {
   const otherArticles = articles.slice(1, 6);
 
   return (
-    <div className="grid grid-rows-6 lg:grid-cols-3 lg:grid-rows-6 gap-4 p-14 ease-in-out duration-300">
+    <div className="grid grid-rows-6 lg:grid-cols-3 lg:grid-rows-6 gap-4 px-14 py-4 ease-in-out duration-300">
       <div className="lg:col-span-2 lg:row-span-4 w-full h-[20rem] lg:h-[33rem] cursor-pointer relative">
         <Link to={`/category/${topArticle.topic}/${topArticle.id}`}>
           <img
@@ -28,9 +28,6 @@ const Highlights = () => {
             <p className="font-sans font-bold text-yellow-400 mt-3">
               {topArticle.topic.toUpperCase()}
             </p>
-            {/* <button className="mt-2 inline-flex cursor-pointer items-center text-sm font-semibold text-white hover:text-yellow-300 hover:underline">
-                View More &rarr;
-              </button> */}
           </div>
         </Link>
       </div>
@@ -58,9 +55,6 @@ const Highlights = () => {
                   <p className="font-sans font-bold text-yellow-400 mt-2">
                     {article.topic.toUpperCase()}
                   </p>
-                  {/* <button className="mt-2 inline-flex cursor-pointer items-center text-sm font-semibold text-white hover:text-yellow-300 hover:underline">
-                  View More &rarr;
-                </button> */}
                 </div>
               </div>
             </Link>
