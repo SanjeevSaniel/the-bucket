@@ -10,10 +10,7 @@ const RoutesPage = () => {
       <Routes>
         <Route path="/">
           <Route index element={<MainContainer />} />
-          <Route
-            path="/category/:topic/:id"
-            element={<PostInDetail />}
-          />
+          <Route path="/category/:topic/:id" element={<PostInDetail />} />
           <Route path="/category/:topic" element={<TopicPage />} />
           <Route path="/articles" element={<ArticlesPage />} />
         </Route>
