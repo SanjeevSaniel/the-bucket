@@ -1,5 +1,3 @@
-// import PropTypes from "prop-types";
-
 const InfoCard = ({ topic, description, image, page }) => {
   return (
     <div className="relative w-[12rem] h-[15rem] lg:h-[20rem] lg:w-[15rem] hover:shadow-xl hover:shadow-gray-700 hover:scale-105 transition-all duration-300 hover:cursor-pointer">
@@ -19,12 +17,5 @@ const InfoCard = ({ topic, description, image, page }) => {
     </div>
   );
 };
-
-// InfoCard.propTypes = {
-//   title: PropTypes.string,
-//   description: PropTypes.string,
-//   image: PropTypes.string,
-//   page: PropTypes.string,
-// };
 
 export default InfoCard;

@@ -13,7 +13,7 @@ const PostInDetail = () => {
   const articles = useContext(ArticlesContext);
   const { topic, id } = useParams();
   const article = articles.filter((article) => article.id === parseInt(id))[0];
-  console.log(article);
+  // console.log(article);
   const relatedPosts = articles
     .filter(
       (article) =>

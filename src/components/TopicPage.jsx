@@ -4,7 +4,7 @@ import { ArticlesContext } from "./MainContainer";
 
 const TopicPage = () => {
   const { topic } = useParams();
-  console.log("topic", topic);
+  // console.log("topic", topic);
 
   const articles = useContext(ArticlesContext);
 
