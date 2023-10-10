@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
-import InfoCard from "./InfoCard";
-// import PropTypes from "prop-types";
+import { InfoCard } from "../components";
 
 const Topics = ({ heading, data }) => {
   return (
@@ -30,10 +29,5 @@ const Topics = ({ heading, data }) => {
     </div>
   );
 };
-
-// Topics.propTypes = {
-//   heading: PropTypes.string.isRequired,
-//   data: PropTypes.array.isRequired,
-// };
 
 export default Topics;

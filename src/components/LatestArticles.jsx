@@ -1,8 +1,8 @@
 import { useState } from "react";
-import HorizonalScrollButton from "./HorizonalScrollButton";
+import { HorizonalScrollButton } from "../components";
 import { Link } from "react-router-dom";
 
-const LatestArticles = ({ backgroundColor, heading, articles }) => {
+const LatestArticles = ({ heading, articles }) => {
   const [start, setStart] = useState(0);
   const [end, setEnd] = useState(4);
 
@@ -90,9 +90,7 @@ const LatestArticles = ({ backgroundColor, heading, articles }) => {
 
   if (window.innerWidth >= 1200)
     return (
-      <div
-        className={`bg-[${backgroundColor}] px-14 py-6`}
-      >
+      <div className={`px-14 py-6`}>
         <h1 className="capitalize underline underline-offset-4 mb-8 text-3xl">
           {heading}
         </h1>
@@ -154,7 +152,7 @@ const LatestArticles = ({ backgroundColor, heading, articles }) => {
 
   if (window.innerWidth >= 900)
     return (
-      <div className={`bg-[${backgroundColor}] p-14`}>
+      <div className={`p-14`}>
         <h1 className="capitalize underline underline-offset-4 mb-8 text-3xl">
           {heading}
         </h1>
@@ -216,7 +214,7 @@ const LatestArticles = ({ backgroundColor, heading, articles }) => {
 
   if (window.innerWidth >= 700)
     return (
-      <div className={`bg-[${backgroundColor}] p-14`}>
+      <div className={`p-14`}>
         <h1 className="capitalize underline underline-offset-4 mb-8 text-3xl">
           {heading}
         </h1>
@@ -278,7 +276,7 @@ const LatestArticles = ({ backgroundColor, heading, articles }) => {
 
   if (window.innerWidth >= 460)
     return (
-      <div className={`bg-[${backgroundColor}] p-14`}>
+      <div className={`p-14`}>
         <h1 className="capitalize underline underline-offset-4 mb-8 text-3xl">
           {heading}
         </h1>

@@ -1,10 +1,8 @@
+import { Footer, GotoTop, Navbar } from "./components";
 import { useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
 import "./App.css";
 import RoutesPage from "./RoutesPage";
-import Footer from "./components/Footer";
-import GotoTop from "./components/GotoTop";
-import Navbar from "./components/Navbar";
 
 function App() {
   const [scrollPosition, setScrollPosition] = useState(0);
