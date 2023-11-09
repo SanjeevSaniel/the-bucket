@@ -1,8 +1,9 @@
-import { Footer, GotoTop, Navbar } from "./components";
+import { Footer, GotoTop, Header } from "./components";
 import { useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
 import "./App.css";
-import RoutesPage from "./RoutesPage";
+// import RoutesPage from "./RoutesPage";
+// import Layout from "./Layout";
 
 function App() {
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -11,7 +12,7 @@ function App() {
   const refScrollUp = useRef();
   const location = useLocation();
 
-  const handleVisibleButton = () => {
+  const handleButtonVisibility = () => {
     const position = window.scrollY;
     setScrollPosition(position);
 
@@ -23,6 +24,7 @@ function App() {
   };
 
   const handleScrollUp = () => {
+    console.log(refScrollUp.current);
     refScrollUp.current.scrollIntoView({ behavior: "smooth" });
   };
 
@@ -32,16 +34,14 @@ function App() {
   }, [location.pathname]);
 
   useEffect(() => {
-    window.addEventListener("scroll", handleVisibleButton);
+    window.addEventListener("scroll", handleButtonVisibility);
   });
 
   return (
     <div className="relative" ref={refScrollUp}>
-      <Navbar scrollUp={handleScrollUp} />
+      <Header scrollUp={handleScrollUp} />
       <GotoTop showBtn={showGoTop} scrollUp={handleScrollUp} />
-      <div className="min-h-screen">
-        <RoutesPage />
-      </div>
+      {/* <div className="min-h-screen"><RoutesPage /></div> */}
       <Footer />
     </div>
   );

@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { HorizonalScrollButton } from "../components";
+import { HorizonalScrollButton } from "..";
 import { Link } from "react-router-dom";
+// import posts from "../api/articles.json";
 
-const LatestArticles = ({ heading, articles }) => {
+const LatestArticles = ({ heading, posts }) => {
   const [start, setStart] = useState(0);
   const [end, setEnd] = useState(4);
 
@@ -10,7 +11,7 @@ const LatestArticles = ({ heading, articles }) => {
   const [tabletEnd, setTabletEnd] = useState(2);
   const [mobileEnd, setMobileEnd] = useState(1);
 
-  const filteredArticles = articles.filter(
+  const filteredArticles = posts.filter(
     (article) => article.topic.toLowerCase() === heading.toLowerCase()
   );
 
@@ -18,7 +19,6 @@ const LatestArticles = ({ heading, articles }) => {
 
   // TODO: Desktop
   const hideRightArrow = filteredArticles.length <= end && "hidden";
-
   const handleNext = () => {
     if (end < filteredArticles.length) {
       setStart((prev) => prev + 1);
@@ -36,6 +36,8 @@ const LatestArticles = ({ heading, articles }) => {
 
   // TODO: Laptop
   const hideLaptopRightArrow = filteredArticles.length <= laptopEnd && "hidden";
+  const hideTabletRightArrow = filteredArticles.length <= tabletEnd && "hidden";
+  const hideMobileRightArrow = filteredArticles.length <= mobileEnd && "hidden";
 
   const handleLaptopNext = () => {
     if (laptopEnd < filteredArticles.length) {
@@ -53,8 +55,6 @@ const LatestArticles = ({ heading, articles }) => {
   };
 
   // TODO: Tablet
-  const hideTabletRightArrow = filteredArticles.length <= tabletEnd && "hidden";
-
   const handleTabletNext = () => {
     if (tabletEnd < filteredArticles.length) {
       setStart((prev) => prev + 1);
@@ -71,8 +71,6 @@ const LatestArticles = ({ heading, articles }) => {
   };
 
   // TODO: Mobile
-  const hideMobileRightArrow = filteredArticles.length <= mobileEnd && "hidden";
-
   const handleMobileNext = () => {
     if (mobileEnd < filteredArticles.length) {
       setStart((prev) => prev + 1);
@@ -118,15 +116,15 @@ const LatestArticles = ({ heading, articles }) => {
               return (
                 <div key={index}>
                   {/* bg-[#138D75] */}
-                  <Link to={`/category/${article.topic}/${article.id}`}>
-                    <div className="w-[300px] h-fit m-auto box-border font-sans hover:scale-105 ease-in-out duration-500 hover:shadow-2xl cursor-pointer rounded-lg">
+                  <Link to={`/posts/${article.topic}/${article.id}`}>
+                    <div className="w-[300px] h-fit m-auto box-border font-sans hover:scale-105 ease-in-out duration-500  hover:shadow-2xl cursor-pointer rounded-lg">
                       <img
                         src={article.image}
                         alt={article.caption}
-                        className="w-full h-[200px] object-fit"
+                        className="w-full h-[200px] object-fit rounded-t-lg"
                       />
-                      <div className="bg-white p-4 rounded-b-lg border-x-2 border-b-2 border-gray-100">
-                        <span className="inline-flex items-center rounded-md text-xs font-semibold text-red-700 mb-2 uppercase">
+                      <div className="bg-white p-4 rounded-b-lg border-gray-100 border-x-2 border-b-2 dark:bg-slate-900">
+                        <span className="inline-flex items-center rounded-md text-sm font-semibold text-red-700 mb-2 uppercase dark:text-red-300">
                           {article.topic}
                         </span>
                         <h2 className="line-clamp-2 font-bold">
@@ -180,7 +178,7 @@ const LatestArticles = ({ heading, articles }) => {
               return (
                 <div key={index}>
                   {/* bg-[#138D75] */}
-                  <Link to={`/category/${article.topic}/${article.id}`}>
+                  <Link to={`/posts/${article.topic}/${article.id}`}>
                     <div className="w-[300px] h-fit m-auto box-border font-sans hover:scale-105 ease-in-out duration-500 hover:shadow-2xl cursor-pointer rounded-lg">
                       <img
                         src={article.image}
@@ -242,7 +240,7 @@ const LatestArticles = ({ heading, articles }) => {
               return (
                 <div key={index}>
                   {/* bg-[#138D75] */}
-                  <Link to={`/category/${article.topic}/${article.id}`}>
+                  <Link to={`/posts/${article.topic}/${article.id}`}>
                     <div className="w-[300px] h-fit m-auto box-border font-sans hover:scale-105 ease-in-out duration-500 hover:shadow-2xl cursor-pointer rounded-lg">
                       <img
                         src={article.image}
@@ -304,7 +302,7 @@ const LatestArticles = ({ heading, articles }) => {
               return (
                 <div key={index}>
                   {/* bg-[#138D75] */}
-                  <Link to={`/category/${article.topic}/${article.id}`}>
+                  <Link to={`/posts/${article.topic}/${article.id}`}>
                     <div className="w-[300px] h-fit m-auto box-border font-sans hover:scale-105 ease-in-out duration-500 hover:shadow-2xl cursor-pointer rounded-lg">
                       <img
                         src={article.image}

@@ -1,20 +1,22 @@
-import { useContext, useState } from "react";
-import { ArticlesContext } from "./MainContainer";
+import { useState } from "react";
+// import { ArticlesContext } from "./MainContainer";
 import { Link } from "react-router-dom";
 
+import posts from "../../api/articles.json";
+
 const ArticlesPage = () => {
-  const articles = useContext(ArticlesContext);
+  // const articles = useContext(ArticlesContext);
   const [categorySelected, setCategorySelected] = useState("");
-  const [filteredArticles, setFilteredArticles] = useState(articles);
+  const [filteredArticles, setFilteredArticles] = useState(posts);
 
   const categories = [];
-  articles.forEach((article) => categories.push(article.topic));
+  posts.forEach((article) => categories.push(article.topic));
 
   const filterArticles = (category) => {
     setCategorySelected(category);
     const result = category
-      ? articles.filter((article) => article.topic === category)
-      : articles;
+      ? posts.filter((article) => article.topic === category)
+      : posts;
 
     setFilteredArticles(result);
   };
@@ -28,10 +30,10 @@ const ArticlesPage = () => {
           </p>
         </Link>
         <span className="">›</span>
-        <p className="inline-flex p-2">Articles</p>
+        <p className="inline-flex p-2">Posts</p>
       </div>
       <h1 className="capitalize underline underline-offset-4 mb-8 text-3xl">
-        Articles
+        Posts
       </h1>
 
       <div className="mb-8">
@@ -60,11 +62,11 @@ const ArticlesPage = () => {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 ease-linear duration-500">
-        {filteredArticles.map((article, index) => {
+        {filteredArticles?.map((article, index) => {
           return (
             <div key={index}>
               {/* bg-[#138D75] */}
-              <Link to={`/category/${article.topic}/${article.id}`}>
+              <Link to={`/posts/${article.topic}/${article.id}`}>
                 <div className="w-full h-fit box-border font-sans hover:scale-105 ease-in-out duration-500 hover:shadow-2xl cursor-pointer rounded-lg overflow-hidden">
                   <img
                     src={article.image}

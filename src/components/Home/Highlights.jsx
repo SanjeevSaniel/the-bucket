@@ -1,17 +1,18 @@
 import { Link } from "react-router-dom";
-import { ArticlesContext } from "./MainContainer";
-import { useContext } from "react";
+// import { ArticlesContext } from "./MainContainer";
+// import { useContext } from "react";
+import posts from "../../api/articles.json";
 
 const Highlights = () => {
-  const articles = useContext(ArticlesContext);
+  // const updatedPosts = useContext(ArticlesContext);
 
-  const topArticle = articles[0];
-  const otherArticles = articles.slice(1, 6);
+  const topArticle = posts[0];
+  const otherArticles = posts.slice(1, 6);
 
   return (
     <div className="grid grid-rows-6 lg:grid-cols-3 lg:grid-rows-6 gap-4 px-14 py-4 ease-in-out duration-300">
       <div className="lg:col-span-2 lg:row-span-4 w-full h-[20rem] lg:h-[33rem] cursor-pointer relative">
-        <Link to={`/category/${topArticle.topic}/${topArticle.id}`}>
+        <Link to={`/posts/${topArticle.topic}/${topArticle.id}`}>
           <img
             src={topArticle.image}
             alt={topArticle.caption}
@@ -37,7 +38,7 @@ const Highlights = () => {
             key={index}
             className="lg:col-span-1 lg:row-span-2 hover:scale-105 ease-in-out duration-500 cursor-pointer overflow-clip rounded-lg relative h-[20rem] lg:h-[16rem]"
           >
-            <Link to={`/category/${article.topic}/${article.id}`}>
+            <Link to={`/posts/${article.topic}/${article.id}`}>
               <div>
                 <img
                   src={article.image}

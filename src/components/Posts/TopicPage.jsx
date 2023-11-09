@@ -1,14 +1,15 @@
-import { useContext } from "react";
+// import { useContext } from "react";
 import { Link, useParams } from "react-router-dom";
-import { ArticlesContext } from "./MainContainer";
+// import { ArticlesContext } from "./MainContainer";
+import posts from "../../api/articles.json";
 
 const TopicPage = () => {
   const { topic } = useParams();
   // console.log("topic", topic);
 
-  const articles = useContext(ArticlesContext);
+  // const articles = useContext(ArticlesContext);
 
-  const filteredArticles = articles.filter(
+  const filteredArticles = posts.filter(
     (article) => article.topic === topic.toLowerCase()
   );
 
@@ -21,9 +22,9 @@ const TopicPage = () => {
           </p>
         </Link>
         <span className="">›</span>
-        <Link to="/articles">
+        <Link to="/posts">
           <p className="inline-flex p-2 hover:underline hover:underline-offset-1">
-            Articles
+            Posts
           </p>
         </Link>
         <span className="">›</span>
@@ -38,7 +39,7 @@ const TopicPage = () => {
         {filteredArticles.map((article, index) => {
           return (
             <div key={index}>
-              <Link to={`/category/${article.topic}/${article.id}`}>
+              <Link to={`/posts/${article.topic}/${article.id}`}>
                 <div className="grid grid-cols-2 max-h-[12rem] m-auto font-sans ease-in-out duration-500 hover:shadow-2xl cursor-pointer rounded-md overflow-hidden relative">
                   <img
                     src={article.image}

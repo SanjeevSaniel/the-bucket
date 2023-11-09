@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { InfoCard } from "../components";
+import { InfoCard } from "..";
 
 const Topics = ({ heading, data }) => {
   return (
@@ -12,7 +12,7 @@ const Topics = ({ heading, data }) => {
           return (
             <div key={d.id}>
               <Link
-                to={`/category/${d.topic}`}
+                to={`/posts/${d.topic}`}
                 onClick={() => console.log(d.topic)}
               >
                 <InfoCard

@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { ArticlesContext } from "./MainContainer";
+import { ArticlesContext } from "../MainContainer";
 import { Link, useParams } from "react-router-dom";
 import Avatar from "react-avatar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -9,12 +9,14 @@ import {
   faYoutube,
 } from "@fortawesome/free-brands-svg-icons";
 
+import posts from "../../api/articles.json";
+
 const PostInDetail = () => {
-  const articles = useContext(ArticlesContext);
+  // const articles = useContext(ArticlesContext);
   const { topic, id } = useParams();
-  const article = articles.filter((article) => article.id === parseInt(id))[0];
+  const article = posts.filter((article) => article.id === parseInt(id))[0];
   // console.log(article);
-  const relatedPosts = articles
+  const relatedPosts = posts
     .filter(
       (article) =>
         article.id !== parseInt(id) && article.topic === topic.toLowerCase()
@@ -31,9 +33,9 @@ const PostInDetail = () => {
             </p>
           </Link>
           <span className="">›</span>
-          <Link to="/articles">
+          <Link to="/posts">
             <p className="inline-flex p-2 hover:underline hover:underline-offset-1">
-              Articles
+              Posts
             </p>
           </Link>
           <span className="">›</span>
@@ -110,7 +112,7 @@ const PostInDetail = () => {
               )}
             </div>
 
-            <p className="my-5">{article.description}</p>
+            <p className="my-5 p-2">{article.description}</p>
           </div>
 
           <div className="col-span-1 mt-10">
@@ -121,7 +123,7 @@ const PostInDetail = () => {
               {relatedPosts.map((article, index) => {
                 return (
                   <div key={index} className="my-6">
-                    <Link to={`/category/${article.topic}/${article.id}`}>
+                    <Link to={`/posts/${article.topic}/${article.id}`}>
                       <div className="grid grid-cols-5 w-full max-h-[12rem] m-auto box-border font-sans ease-in-out duration-500 cursor-pointer rounded-md overflow-hidden relative">
                         <img
                           src={article.image}
@@ -161,9 +163,9 @@ const PostInDetail = () => {
             </p>
           </Link>
           <span className="">›</span>
-          <Link to="/articles">
+          <Link to="/posts">
             <p className="inline-flex p-2 hover:underline hover:underline-offset-1">
-              Articles
+              Posts
             </p>
           </Link>
           <span className="">›</span>
@@ -226,7 +228,7 @@ const PostInDetail = () => {
               {relatedPosts.map((article, index) => {
                 return (
                   <div key={index} className="my-6">
-                    <Link to={`/category/${article.topic}/${article.id}`}>
+                    <Link to={`/posts/${article.topic}/${article.id}`}>
                       <div className="grid grid-cols-5 w-full max-h-[12rem] m-auto box-border font-sans ease-in-out duration-500 cursor-pointer rounded-md overflow-hidden relative">
                         <img
                           src={article.image}
