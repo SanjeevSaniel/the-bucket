@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 // import posts from "../api/articles.json";
 
 const LatestArticles = ({ heading, posts }) => {
+  const route = "articles";
   const [start, setStart] = useState(0);
   const [end, setEnd] = useState(4);
 
@@ -89,7 +90,7 @@ const LatestArticles = ({ heading, posts }) => {
   if (window.innerWidth >= 1200)
     return (
       <div className={`px-14 py-6`}>
-        <h1 className="capitalize underline underline-offset-4 mb-8 text-3xl">
+        <h1 className="capitalize underline underline-offset-4 mb-8 text-3xl dark:text-gray-200">
           {heading}
         </h1>
 
@@ -111,20 +112,20 @@ const LatestArticles = ({ heading, posts }) => {
             &gt;
           </HorizonalScrollButton>
 
-          <div className="grid grid-cols-4 gap-8 ease-linear duration-500">
+          <div className="grid grid-cols-4 gap-8 ease-in-out duration-200 dark:text-white">
             {filteredArticles.slice(start, end).map((article, index) => {
               return (
                 <div key={index}>
                   {/* bg-[#138D75] */}
-                  <Link to={`/posts/${article.topic}/${article.id}`}>
+                  <Link to={`/${route}/${article.topic}/${article.id}`}>
                     <div className="w-[300px] h-fit m-auto box-border font-sans hover:scale-105 ease-in-out duration-500  hover:shadow-2xl cursor-pointer rounded-lg">
                       <img
                         src={article.image}
                         alt={article.caption}
                         className="w-full h-[200px] object-fit rounded-t-lg"
                       />
-                      <div className="bg-white p-4 rounded-b-lg border-gray-100 border-x-2 border-b-2 dark:bg-slate-900">
-                        <span className="inline-flex items-center rounded-md text-sm font-semibold text-red-700 mb-2 uppercase dark:text-red-300">
+                      <div className="bg-white p-4 rounded-b-lg border-gray-100 border-x-2 border-b-2 dark:bg-slate-900 dark:border-gray-500">
+                        <span className="inline-flex items-center rounded-md text-sm font-semibold text-red-700 mb-2 uppercase dark:text-yellow-400">
                           {article.topic}
                         </span>
                         <h2 className="line-clamp-2 font-bold">
@@ -178,7 +179,7 @@ const LatestArticles = ({ heading, posts }) => {
               return (
                 <div key={index}>
                   {/* bg-[#138D75] */}
-                  <Link to={`/posts/${article.topic}/${article.id}`}>
+                  <Link to={`/${route}/${article.topic}/${article.id}`}>
                     <div className="w-[300px] h-fit m-auto box-border font-sans hover:scale-105 ease-in-out duration-500 hover:shadow-2xl cursor-pointer rounded-lg">
                       <img
                         src={article.image}
@@ -240,7 +241,7 @@ const LatestArticles = ({ heading, posts }) => {
               return (
                 <div key={index}>
                   {/* bg-[#138D75] */}
-                  <Link to={`/posts/${article.topic}/${article.id}`}>
+                  <Link to={`/${route}/${article.topic}/${article.id}`}>
                     <div className="w-[300px] h-fit m-auto box-border font-sans hover:scale-105 ease-in-out duration-500 hover:shadow-2xl cursor-pointer rounded-lg">
                       <img
                         src={article.image}
@@ -302,7 +303,7 @@ const LatestArticles = ({ heading, posts }) => {
               return (
                 <div key={index}>
                   {/* bg-[#138D75] */}
-                  <Link to={`/posts/${article.topic}/${article.id}`}>
+                  <Link to={`/${route}/${article.topic}/${article.id}`}>
                     <div className="w-[300px] h-fit m-auto box-border font-sans hover:scale-105 ease-in-out duration-500 hover:shadow-2xl cursor-pointer rounded-lg">
                       <img
                         src={article.image}

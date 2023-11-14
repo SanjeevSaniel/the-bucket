@@ -5,6 +5,7 @@ import posts from "../../api/articles.json";
 
 const Highlights = () => {
   // const updatedPosts = useContext(ArticlesContext);
+  const route = "articles";
 
   const topArticle = posts[0];
   const otherArticles = posts.slice(1, 6);
@@ -12,7 +13,7 @@ const Highlights = () => {
   return (
     <div className="grid grid-rows-6 lg:grid-cols-3 lg:grid-rows-6 gap-4 px-14 py-4 ease-in-out duration-300">
       <div className="lg:col-span-2 lg:row-span-4 w-full h-[20rem] lg:h-[33rem] cursor-pointer relative">
-        <Link to={`/posts/${topArticle.topic}/${topArticle.id}`}>
+        <Link to={`/${route}/${topArticle.topic}/${topArticle.id}`}>
           <img
             src={topArticle.image}
             alt={topArticle.caption}
@@ -38,7 +39,7 @@ const Highlights = () => {
             key={index}
             className="lg:col-span-1 lg:row-span-2 hover:scale-105 ease-in-out duration-500 cursor-pointer overflow-clip rounded-lg relative h-[20rem] lg:h-[16rem]"
           >
-            <Link to={`/posts/${article.topic}/${article.id}`}>
+            <Link to={`/${route}/${article.topic}/${article.id}`}>
               <div>
                 <img
                   src={article.image}

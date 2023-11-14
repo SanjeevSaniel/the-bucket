@@ -4,7 +4,7 @@ import ThemeButton from "../Byte Features/ThemeButton";
 
 const menuItems = [
   { id: 1, label: "home", path: "" },
-  { id: 2, label: "posts", path: "posts" },
+  { id: 2, label: "Articles", path: "articles" },
   // { id: 3, label: "about", path: "about" },
 ];
 
@@ -37,9 +37,6 @@ const Navbar = ({ scrollUp }) => {
         </ul>
       </div>
       <div className="flex-initial">
-        {/* <span className="material-symbols-outlined">person</span> */}
-        {/* <span className="material-symbols-outlined">person</span>
-        <span className="material-symbols-outlined">person</span> */}
         <ThemeButton />
       </div>
     </div>

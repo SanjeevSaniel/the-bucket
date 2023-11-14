@@ -1,22 +1,19 @@
-import { useContext } from "react";
-import { ArticlesContext } from "../MainContainer";
 import { Link, useParams } from "react-router-dom";
 import Avatar from "react-avatar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faInstagram,
-  // faPinterest,
-  faYoutube,
-} from "@fortawesome/free-brands-svg-icons";
+import { faInstagram, faYoutube } from "@fortawesome/free-brands-svg-icons";
 
-import posts from "../../api/articles.json";
+import useArticles from "../../contexts/articles";
 
 const PostInDetail = () => {
-  // const articles = useContext(ArticlesContext);
   const { topic, id } = useParams();
-  const article = posts.filter((article) => article.id === parseInt(id))[0];
-  // console.log(article);
-  const relatedPosts = posts
+  const { articles } = useArticles();
+  console.log(articles);
+
+  const route = "articles";
+
+  const article = articles.filter((article) => article.id === parseInt(id))[0];
+  const relatedPosts = articles
     .filter(
       (article) =>
         article.id !== parseInt(id) && article.topic === topic.toLowerCase()
@@ -28,23 +25,25 @@ const PostInDetail = () => {
       <div className="px-14 relative">
         <div className="my-4">
           <Link to="/">
-            <p className="inline-flex p-2 hover:underline hover:underline-offset-1">
+            <p className="inline-flex p-2 hover:underline hover:underline-offset-1 dark:text-white">
               Home
             </p>
           </Link>
-          <span className="">›</span>
-          <Link to="/posts">
-            <p className="inline-flex p-2 hover:underline hover:underline-offset-1">
-              Posts
+          <span className="dark:text-white">›</span>
+          <Link to="/articles">
+            <p className="inline-flex p-2 hover:underline hover:underline-offset-1 dark:text-white">
+              Articles
             </p>
           </Link>
-          <span className="">›</span>
-          <p className="inline-flex p-2 capitalize">{topic}</p>
+          <span className="dark:text-white">›</span>
+          <p className="inline-flex p-2 capitalize dark:text-white">{topic}</p>
         </div>
 
         <div className="py-2 grid grid-cols-3 gap-5">
           <div className="col-span-2">
-            <h1 className="text-3xl font-semibold">{article.title}</h1>
+            <h1 className="text-3xl dark:text-white font-semibold">
+              {article.title}
+            </h1>
             <img
               src={article.image}
               alt={article.caption}
@@ -73,11 +72,11 @@ const PostInDetail = () => {
                   </svg>
                 )}
                 {article.publisher !== "BucketListly Blog" && (
-                  <span className="mr-2 ring-2 ring-white">
+                  <span className="mr-2">
                     <Avatar size="50px" round="100%" name={article.publisher} />
                   </span>
                 )}
-                <div>
+                <div className="dark:text-white">
                   <p>{article.publisher}</p>
                   <p>{article.date}</p>
                 </div>
@@ -111,26 +110,25 @@ const PostInDetail = () => {
                 </div>
               )}
             </div>
-
-            <p className="my-5 p-2">{article.description}</p>
+            <p className="my-5 p-2 dark:text-white">{article.description}</p>
           </div>
 
           <div className="col-span-1 mt-10">
-            <h1 className="text-2xl font-semibold underline underline-offset-1">
+            <h1 className="text-2xl font-semibold underline underline-offset-1 dark:text-white">
               Related Posts
             </h1>
             <div>
               {relatedPosts.map((article, index) => {
                 return (
                   <div key={index} className="my-6">
-                    <Link to={`/posts/${article.topic}/${article.id}`}>
+                    <Link to={`/${route}/${article.topic}/${article.id}`}>
                       <div className="grid grid-cols-5 w-full max-h-[12rem] m-auto box-border font-sans ease-in-out duration-500 cursor-pointer rounded-md overflow-hidden relative">
                         <img
                           src={article.image}
                           alt={article.caption}
                           className="w-full h-full object-fit col-span-2"
                         />
-                        <div className="col-span-3 bg-white px-3 py-1 rounded-b-lg border-x-2 border-b-2 border-gray-100">
+                        <div className="col-span-3 bg-white px-3 py-1 rounded-r-lg border-y-2 border-r-2 border-gray-100 dark:text-white dark:bg-slate-900 dark:border-gray-600">
                           <h2 className="line-clamp-2 font-bold">
                             {article.title}
                           </h2>
@@ -163,7 +161,7 @@ const PostInDetail = () => {
             </p>
           </Link>
           <span className="">›</span>
-          <Link to="/posts">
+          <Link to="/articles">
             <p className="inline-flex p-2 hover:underline hover:underline-offset-1">
               Posts
             </p>

@@ -22,7 +22,7 @@ const ArticlesPage = () => {
   };
 
   return (
-    <div className={`px-14`}>
+    <div className={`px-14 dark:text-white`}>
       <div className="my-4">
         <Link to="/">
           <p className="inline-flex p-2 hover:underline hover:underline-offset-1">
@@ -30,10 +30,10 @@ const ArticlesPage = () => {
           </p>
         </Link>
         <span className="">›</span>
-        <p className="inline-flex p-2">Posts</p>
+        <p className="inline-flex p-2">Articles</p>
       </div>
       <h1 className="capitalize underline underline-offset-4 mb-8 text-3xl">
-        Posts
+        Articles
       </h1>
 
       <div className="mb-8">
@@ -42,7 +42,7 @@ const ArticlesPage = () => {
         <button
           onClick={() => filterArticles("")}
           disabled={categorySelected == ""}
-          className="border-2 border-solid border-black px-2 mx-2 rounded-md inline-block uppercase disabled:bg-gray-600 disabled:text-white"
+          className="border-2 border-solid border-black dark:border-gray-400 px-2 mx-2 rounded-md inline-block uppercase disabled:bg-gray-600 disabled:text-white dark:disabled:bg-yellow-600"
         >
           ALL
         </button>
@@ -52,7 +52,7 @@ const ArticlesPage = () => {
             <button
               key={index}
               disabled={categorySelected == c}
-              className="disabled:bg-gray-600 disabled:text-white border-2 border-solid border-black px-2 mx-2 rounded-md uppercase"
+              className=" border-2 border-solid border-black dark:border-gray-400 px-2 mx-2 rounded-md uppercase disabled:bg-gray-600 disabled:text-white dark:disabled:bg-yellow-600"
               onClick={() => filterArticles(c)}
             >
               {c}
@@ -64,17 +64,20 @@ const ArticlesPage = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 ease-linear duration-500">
         {filteredArticles?.map((article, index) => {
           return (
-            <div key={index}>
+            <div
+              key={index}
+              className="bg-white dark:bg-slate-800 dark:text-white"
+            >
               {/* bg-[#138D75] */}
-              <Link to={`/posts/${article.topic}/${article.id}`}>
-                <div className="w-full h-fit box-border font-sans hover:scale-105 ease-in-out duration-500 hover:shadow-2xl cursor-pointer rounded-lg overflow-hidden">
+              <Link to={`/articles/${article.topic}/${article.id}`}>
+                <div className="w-full h-fit box-border font-sans hover:scale-105 ease-in-out duration-500 hover:shadow-2xl cursor-pointer rounded-lg overflow-hidden ">
                   <img
                     src={article.image}
                     alt={article.caption}
                     className="w-full h-[200px] object-fit"
                   />
-                  <div className="bg-white p-4 rounded-b-lg border-x-2 border-b-2 border-gray-100">
-                    <span className="inline-flex items-center rounded-md text-xs font-semibold text-red-700 mb-2 uppercase">
+                  <div className=" p-4 rounded-b-lg border-x-2 border-b-2 border-gray-100 dark:border-gray-500">
+                    <span className="inline-flex items-center rounded-md text-sm font-bold text-red-700 dark:text-yellow-400 mb-2 uppercase">
                       {article.topic}
                     </span>
                     <h2 className="line-clamp-2 font-bold">{article.title}</h2>

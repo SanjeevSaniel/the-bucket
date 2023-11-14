@@ -5,6 +5,9 @@ import { useState } from "react";
 import "./App.css";
 import { ThemeProvider } from "./contexts/theme";
 
+import articles from "./api/articles.json";
+import { ArticlesProvider } from "./contexts/articles";
+
 const Layout = () => {
   const [themeMode, setThemeMode] = useState("light");
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -52,12 +55,14 @@ const Layout = () => {
 
   return (
     <ThemeProvider value={{ themeMode, darkMode, lightMode }}>
-      <div ref={refScrollUp} className="dark:text-white dark:bg-slate-800">
-        <Navbar scrollUp={handleScrollUp} />
-        <Outlet />
-        <GotoTop showBtn={showGoTop} scrollUp={handleScrollUp} />
-        <Footer />
-      </div>
+      <ArticlesProvider value={{ articles }}>
+        <div ref={refScrollUp} className="dark:bg-slate-800">
+          <Navbar scrollUp={handleScrollUp} />
+          <Outlet />
+          <GotoTop showBtn={showGoTop} scrollUp={handleScrollUp} />
+          <Footer />
+        </div>
+      </ArticlesProvider>
     </ThemeProvider>
   );
 };

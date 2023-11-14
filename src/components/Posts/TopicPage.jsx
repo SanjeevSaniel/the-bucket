@@ -1,13 +1,9 @@
-// import { useContext } from "react";
 import { Link, useParams } from "react-router-dom";
-// import { ArticlesContext } from "./MainContainer";
 import posts from "../../api/articles.json";
 
 const TopicPage = () => {
   const { topic } = useParams();
-  // console.log("topic", topic);
-
-  // const articles = useContext(ArticlesContext);
+  const route = "articles";
 
   const filteredArticles = posts.filter(
     (article) => article.topic === topic.toLowerCase()
@@ -21,13 +17,13 @@ const TopicPage = () => {
             Home
           </p>
         </Link>
-        <span className="">›</span>
-        <Link to="/posts">
+        <span>›</span>
+        <Link to={`/${route}`}>
           <p className="inline-flex p-2 hover:underline hover:underline-offset-1">
-            Posts
+            Articles
           </p>
         </Link>
-        <span className="">›</span>
+        <span>›</span>
         <p className="inline-flex p-2">{topic}</p>
       </div>
 
@@ -39,7 +35,7 @@ const TopicPage = () => {
         {filteredArticles.map((article, index) => {
           return (
             <div key={index}>
-              <Link to={`/posts/${article.topic}/${article.id}`}>
+              <Link to={`/${route}/${article.topic}/${article.id}`}>
                 <div className="grid grid-cols-2 max-h-[12rem] m-auto font-sans ease-in-out duration-500 hover:shadow-2xl cursor-pointer rounded-md overflow-hidden relative">
                   <img
                     src={article.image}

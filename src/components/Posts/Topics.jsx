@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import { InfoCard } from "..";
 
 const Topics = ({ heading, data }) => {
+  const route = "articles";
+
   return (
     <div className="bg-[#41448d] p-5 lg:p-14 w-full text-white">
       <h1 className="capitalize underline underline-offset-4 mb-8 text-2xl">
@@ -12,7 +14,7 @@ const Topics = ({ heading, data }) => {
           return (
             <div key={d.id}>
               <Link
-                to={`/posts/${d.topic}`}
+                to={`/${route}/${d.topic}`}
                 onClick={() => console.log(d.topic)}
               >
                 <InfoCard
