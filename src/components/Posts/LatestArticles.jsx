@@ -118,7 +118,7 @@ const LatestArticles = ({ heading, posts }) => {
                 <div key={index}>
                   {/* bg-[#138D75] */}
                   <Link to={`/${route}/${article.topic}/${article.id}`}>
-                    <div className="w-[300px] h-fit m-auto box-border font-sans hover:scale-105 ease-in-out duration-500  hover:shadow-2xl cursor-pointer rounded-lg">
+                    <div className="w-[300px] h-fit m-auto box-border font-sans hover:scale-105 ease-in-out duration-500 hover:shadow-2xl cursor-pointer rounded-lg">
                       <img
                         src={article.image}
                         alt={article.caption}
@@ -152,7 +152,7 @@ const LatestArticles = ({ heading, posts }) => {
   if (window.innerWidth >= 900)
     return (
       <div className={`p-14`}>
-        <h1 className="capitalize underline underline-offset-4 mb-8 text-3xl">
+        <h1 className="capitalize underline underline-offset-4 mb-8 text-3xl dark:text-gray-200">
           {heading}
         </h1>
 
@@ -174,7 +174,7 @@ const LatestArticles = ({ heading, posts }) => {
             &gt;
           </HorizonalScrollButton>
 
-          <div className="grid grid-cols-3 gap-4 ease-linear duration-500">
+          <div className="grid grid-cols-3 gap-4 ease-linear duration-500 dark:text-white">
             {filteredArticles.slice(start, laptopEnd).map((article, index) => {
               return (
                 <div key={index}>
@@ -186,7 +186,7 @@ const LatestArticles = ({ heading, posts }) => {
                         alt={article.caption}
                         className="w-full h-[200px] object-fit"
                       />
-                      <div className="bg-white p-4 rounded-b-lg border-x-2 border-b-2 border-gray-100">
+                      <div className="bg-white p-4 rounded-b-lg border-x-2 border-b-2 border-gray-100 dark:bg-slate-900 dark:border-gray-500">
                         <span className="inline-flex items-center rounded-md text-xs font-semibold text-red-700 mb-2 uppercase">
                           {article.topic}
                         </span>
@@ -214,7 +214,7 @@ const LatestArticles = ({ heading, posts }) => {
   if (window.innerWidth >= 700)
     return (
       <div className={`p-14`}>
-        <h1 className="capitalize underline underline-offset-4 mb-8 text-3xl">
+        <h1 className="capitalize underline underline-offset-4 mb-8 text-3xl dark:text-gray-200">
           {heading}
         </h1>
 
@@ -236,7 +236,7 @@ const LatestArticles = ({ heading, posts }) => {
             &gt;
           </HorizonalScrollButton>
 
-          <div className="grid grid-cols-2  gap-8 ease-linear duration-500">
+          <div className="grid grid-cols-2  gap-8 ease-linear duration-500 dark:text-white">
             {filteredArticles.slice(start, tabletEnd).map((article, index) => {
               return (
                 <div key={index}>
@@ -248,8 +248,8 @@ const LatestArticles = ({ heading, posts }) => {
                         alt={article.caption}
                         className="w-full h-[200px] object-fit"
                       />
-                      <div className="bg-white p-4 rounded-b-lg border-x-2 border-b-2 border-gray-100">
-                        <span className="inline-flex items-center rounded-md text-xs font-semibold text-red-700 mb-2 uppercase">
+                      <div className="bg-white p-4 rounded-b-lg border-x-2 border-b-2 border-gray-100 dark:bg-slate-900 dark:border-gray-500">
+                        <span className="inline-flex items-center rounded-md text-sm font-semibold text-red-700 dark:text-yellow-400 mb-2 uppercase">
                           {article.topic}
                         </span>
                         <h2 className="line-clamp-2 font-bold">
@@ -276,7 +276,7 @@ const LatestArticles = ({ heading, posts }) => {
   if (window.innerWidth >= 460)
     return (
       <div className={`p-14`}>
-        <h1 className="capitalize underline underline-offset-4 mb-8 text-3xl">
+        <h1 className="capitalize underline underline-offset-4 mb-8 text-3xl dark:text-gray-200">
           {heading}
         </h1>
 
@@ -298,7 +298,7 @@ const LatestArticles = ({ heading, posts }) => {
             &gt;
           </HorizonalScrollButton>
 
-          <div className="grid grid-cols-1 gap-8 ease-linear duration-500">
+          <div className="grid grid-cols-1 gap-8 ease-linear duration-500 dark:text-white">
             {filteredArticles.slice(start, mobileEnd).map((article, index) => {
               return (
                 <div key={index}>
@@ -310,8 +310,8 @@ const LatestArticles = ({ heading, posts }) => {
                         alt={article.caption}
                         className="w-full h-[200px] object-fit"
                       />
-                      <div className="bg-white p-4 rounded-b-lg border-x-2 border-b-2 border-gray-100">
-                        <span className="inline-flex items-center rounded-md text-xs font-semibold text-red-700 mb-2 uppercase">
+                      <div className="bg-white p-4 rounded-b-lg border-x-2 border-b-2 border-gray-100 dark:bg-slate-900 dark:border-gray-500">
+                        <span className="inline-flex items-center rounded-md text-sm font-semibold text-red-700 dark:text-yellow-400 mb-2 uppercase">
                           {article.topic}
                         </span>
                         <h2 className="line-clamp-2 font-bold">

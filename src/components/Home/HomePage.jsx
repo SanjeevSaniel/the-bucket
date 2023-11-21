@@ -14,7 +14,9 @@ const HomePage = () => {
     <div>
       <SlideShow images={articleImages} />
       <Highlights />
-      <Topics heading="Topics" data={categories} />
+      <div className="flex justify-center items-center ">
+        <Topics heading="Topics" data={categories} />
+      </div>
 
       <LatestArticles heading="tech" posts={posts} />
       <LatestArticles heading="travel" posts={posts} />

@@ -58,7 +58,9 @@ const Layout = () => {
       <ArticlesProvider value={{ articles }}>
         <div ref={refScrollUp} className="dark:bg-slate-800">
           <Navbar scrollUp={handleScrollUp} />
-          <Outlet />
+          <div className="m-auto lg:w-[1400px]">
+            <Outlet />
+          </div>
           <GotoTop showBtn={showGoTop} scrollUp={handleScrollUp} />
           <Footer />
         </div>

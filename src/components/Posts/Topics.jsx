@@ -5,7 +5,7 @@ const Topics = ({ heading, data }) => {
   const route = "articles";
 
   return (
-    <div className="bg-[#41448d] p-5 lg:p-14 w-full text-white">
+    <div className="bg-[#41448d] p-3 lg:p-10 w-fit text-white rounded-lg">
       <h1 className="capitalize underline underline-offset-4 mb-8 text-2xl">
         {heading}
       </h1>

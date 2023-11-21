@@ -24,7 +24,6 @@ const router = createBrowserRouter(
       <Route path="articles" element={<ArticlesPage />}></Route>
       <Route path="articles/:topic/:id" element={<PostInDetail />} />
       <Route path="articles/:topic" element={<TopicPage />} />
-
       <Route path="form" element={<Form />} />
     </Route>
   )
