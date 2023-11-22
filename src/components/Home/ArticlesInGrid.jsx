@@ -1,19 +1,21 @@
 import { Link } from "react-router-dom";
-import posts from "../../api/articles.json";
+import { useContext } from "react";
+import { ArticlesContext } from "../../contexts/articles";
 
 const ArticlesInGrid = () => {
   const route = "articles";
-  const articles = posts.slice(0, 9);
+  const { articles } = useContext(ArticlesContext);
+  const articlesToShow = articles.slice(0, 9);
 
   return (
-    <div className="grid grid-rows-6 lg:grid-cols-4 gap-1 lg:my-6 px-8 py-4 ease-in-out duration-300">
-      {articles.map((article, index) => {
+    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-1 lg:my-6 px-8 py-4 ease-in-out duration-300">
+      {articlesToShow.map((article, index) => {
         return (
           <div
             key={article.id}
             className={`${
               (index === 0 || index === 4 || index === 8) && "lg:col-span-2"
-            }  lg:row-span-2 hover:z-10 hover:scale-105 ease-in-out duration-500 cursor-pointer overflow-clip relative h-[20rem] lg:h-[20rem]`}
+            }  lg:row-span-2 hover:z-10 hover:scale-105 ease-in-out duration-500 cursor-pointer overflow-clip relative h-[14rem] md:h-[20rem] lg:h-[20rem]`}
           >
             <Link to={`/${route}/${article.topic}/${article.id}`}>
               <img
