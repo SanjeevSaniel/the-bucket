@@ -1,7 +1,7 @@
 // import { useContext } from "react";
 // import { ArticlesContext } from "./MainContainer";
 import categories from "../../api/categories.json";
-import { Highlights, SlideShow, Topics, LatestArticles } from "..";
+import { SlideShow, Topics, LatestArticles } from "..";
 import posts from "../../api/articles.json";
 import ArticlesInGrid from "./ArticlesInGrid";
 
@@ -14,15 +14,14 @@ const HomePage = () => {
   return (
     <div>
       <SlideShow images={articleImages} />
-      {/* <Highlights /> */}
       <ArticlesInGrid />
       <div className="flex justify-center items-center ">
         <Topics heading="Topics" data={categories} />
       </div>
 
-      <LatestArticles heading="tech" posts={posts} />
-      <LatestArticles heading="travel" posts={posts} />
-      <LatestArticles heading="finance" posts={posts} />
+      <LatestArticles heading="tech" />
+      {/* <LatestArticles heading="travel" />
+      <LatestArticles heading="finance" /> */}
     </div>
   );
 };
