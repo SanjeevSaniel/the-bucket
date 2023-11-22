@@ -3,6 +3,7 @@
 import categories from "../../api/categories.json";
 import { Highlights, SlideShow, Topics, LatestArticles } from "..";
 import posts from "../../api/articles.json";
+import ArticlesInGrid from "./ArticlesInGrid";
 
 const HomePage = () => {
   // const posts = useContext(ArticlesContext);
@@ -13,7 +14,8 @@ const HomePage = () => {
   return (
     <div>
       <SlideShow images={articleImages} />
-      <Highlights />
+      {/* <Highlights /> */}
+      <ArticlesInGrid />
       <div className="flex justify-center items-center ">
         <Topics heading="Topics" data={categories} />
       </div>

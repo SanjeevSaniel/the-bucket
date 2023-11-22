@@ -1,6 +1,4 @@
 import { Link } from "react-router-dom";
-// import { ArticlesContext } from "./MainContainer";
-// import { useContext } from "react";
 import posts from "../../api/articles.json";
 
 const Highlights = () => {
@@ -11,15 +9,15 @@ const Highlights = () => {
   const otherArticles = posts.slice(1, 6);
 
   return (
-    <div className="grid grid-rows-6 lg:grid-cols-3 lg:grid-rows-6 gap-4 px-14 py-4 ease-in-out duration-300">
-      <div className="lg:col-span-2 lg:row-span-4 w-full h-[20rem] lg:h-[33rem] cursor-pointer relative">
+    <div className="grid grid-rows-6 lg:grid-cols-3 lg:grid-rows-6 px-14 py-4 ease-in-out duration-300">
+      <div className="lg:col-span-2 lg:row-span-4 w-full h-[20rem] lg:h-[32rem] cursor-pointer relative">
         <Link to={`/${route}/${topArticle.topic}/${topArticle.id}`}>
           <img
             src={topArticle.image}
             alt={topArticle.caption}
             className="z-0 rounded-md object-cover w-full h-full"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent rounded-md"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent"></div>
           <div className="absolute bottom-10 left-10 right-10 text-left ">
             <h1 className="text-lg font-semibold text-white">
               {topArticle.title}
@@ -36,8 +34,8 @@ const Highlights = () => {
       {otherArticles.map((article, index) => {
         return (
           <div
-            key={index}
-            className="lg:col-span-1 lg:row-span-2 hover:scale-105 ease-in-out duration-500 cursor-pointer overflow-clip rounded-lg relative h-[20rem] lg:h-[16rem]"
+            key={article.id}
+            className="lg:col-span-1 lg:row-span-2 hover:z-10 hover:scale-105 ease-in-out duration-500 cursor-pointer overflow-clip relative h-[20rem] lg:h-[16rem]"
           >
             <Link to={`/${route}/${article.topic}/${article.id}`}>
               <div>
