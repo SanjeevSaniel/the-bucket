@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { HorizonalScrollButton } from "..";
 import { Link } from "react-router-dom";
+import { ArticlesContext } from "../../contexts/articles";
 // import posts from "../api/articles.json";
 
-const LatestArticles = ({ heading, posts }) => {
+const LatestArticles = ({ heading }) => {
+  const { articles } = useContext(ArticlesContext);
   const route = "articles";
   const [start, setStart] = useState(0);
   const [end, setEnd] = useState(4);
@@ -12,9 +14,12 @@ const LatestArticles = ({ heading, posts }) => {
   const [tabletEnd, setTabletEnd] = useState(2);
   const [mobileEnd, setMobileEnd] = useState(1);
 
-  const filteredArticles = posts.filter(
-    (article) => article.topic.toLowerCase() === heading.toLowerCase()
-  );
+  // const filteredArticles = articles.filter(
+  //   (article) => article.topic.toLowerCase() === heading.toLowerCase()
+  // );
+
+  const [categorySelected, setCategorySelected] = useState("");
+  const [filteredArticles, setFilteredArticles] = useState(articles);
 
   const hideLeftArrow = start <= 0 && "hidden";
 
@@ -87,12 +92,44 @@ const LatestArticles = ({ heading, posts }) => {
     }
   };
 
+  const categories = [];
+  articles.forEach((article) => categories.push(article.topic));
+
+  const filterArticles = (category) => {
+    setCategorySelected(category);
+    const result = category
+      ? articles.filter((article) => article.topic === category)
+      : articles;
+
+    setFilteredArticles(result);
+  };
+
   if (window.innerWidth >= 1200)
     return (
-      <div className={`px-14 py-6`}>
-        <h1 className="capitalize underline underline-offset-4 mb-8 text-3xl dark:text-gray-200">
-          {heading}
-        </h1>
+      <div className={`mx-3 my-14 px-10 py-6 rounded-lg dark:border-slate-500`}>
+        <h1 className="text-3xl mx-2 mb-6 dark:text-white">Articles</h1>
+        <div className="mb-8 dark:text-white">
+          <button
+            onClick={() => filterArticles("")}
+            disabled={categorySelected == ""}
+            className="uppercase border-2 border-solid border-black dark:border-gray-400 px-2 mx-2 rounded-md inline-block  disabled:bg-gray-600 disabled:text-white dark:disabled:bg-yellow-600"
+          >
+            All
+          </button>
+
+          {[...new Set([...categories])].map((c, index) => {
+            return (
+              <button
+                key={index}
+                disabled={categorySelected == c}
+                className=" border-2 border-solid border-black dark:border-gray-400 px-2 mx-2 rounded-md uppercase disabled:bg-gray-600 disabled:text-white dark:disabled:bg-yellow-600"
+                onClick={() => filterArticles(c)}
+              >
+                {c}
+              </button>
+            );
+          })}
+        </div>
 
         {/* TODO: Scroll buttons */}
         <div className="relative">
@@ -112,13 +149,13 @@ const LatestArticles = ({ heading, posts }) => {
             &gt;
           </HorizonalScrollButton>
 
-          <div className="grid grid-cols-4 gap-8 ease-in-out duration-200 dark:text-white">
+          <div className="grid grid-cols-4 gap-8 dark:text-white">
             {filteredArticles.slice(start, end).map((article, index) => {
               return (
                 <div key={index}>
                   {/* bg-[#138D75] */}
                   <Link to={`/${route}/${article.topic}/${article.id}`}>
-                    <div className="w-[300px] h-fit m-auto box-border font-sans hover:scale-105 ease-in-out duration-500 hover:shadow-2xl cursor-pointer rounded-lg">
+                    <div className="w-[300px] h-fit m-auto box-border font-sans hover:scale-105 linear duration-500 hover:shadow-2xl cursor-pointer rounded-lg">
                       <img
                         src={article.image}
                         alt={article.caption}
